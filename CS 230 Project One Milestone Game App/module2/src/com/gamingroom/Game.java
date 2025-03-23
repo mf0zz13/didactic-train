@@ -1,5 +1,8 @@
 package com.gamingroom;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * A simple class to hold information about a game
  * 
@@ -14,16 +17,16 @@ package com.gamingroom;
  * @author coce@snhu.edu
  *
  */
-public class Game {
+public class Game extends Entity {
 	long id;
 	String name;
+	private static List<Team> teams = new ArrayList<Team>();
+
 	
 	/**
 	 * Hide the default constructor to prevent creating empty instances.
 	 */
-	private Game() {
-	}
-
+	private Game(){}
 	/**
 	 * Constructor with an identifier and name
 	 */
@@ -31,6 +34,21 @@ public class Game {
 		this();
 		this.id = id;
 		this.name = name;
+	}
+
+	/**
+	 * Set team Name
+	 */
+	public Team addTeam(String name) {
+		for (Team team:teams) {
+			if (team.name == name) {
+				return team;
+			}
+		}
+
+		Team tempTeam = new Team(id, name);
+		teams.add(tempTeam);
+		return tempTeam;
 	}
 
 	/**
