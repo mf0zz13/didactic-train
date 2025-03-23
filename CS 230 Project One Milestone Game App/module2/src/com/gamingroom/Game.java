@@ -22,18 +22,11 @@ public class Game extends Entity {
 	String name;
 	private static List<Team> teams = new ArrayList<Team>();
 
-	
-	/**
-	 * Hide the default constructor to prevent creating empty instances.
-	 */
-	private Game(){}
 	/**
 	 * Constructor with an identifier and name
 	 */
 	public Game(long id, String name) {
-		this();
-		this.id = id;
-		this.name = name;
+        super(id, name);
 	}
 
 	/**
@@ -50,20 +43,6 @@ public class Game extends Entity {
 		Team tempTeam = new Team(id, name);
 		teams.add(tempTeam);
 		return tempTeam;
-	}
-
-	/**
-	 * @return the id
-	 */
-	public long getId() {
-		return id;
-	}
-
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
 	}
 
 	@Override
