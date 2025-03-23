@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * A singleton service for the game engine
- * 
+ *
  * @author coce@snhu.edu
  */
 public class GameService {
@@ -20,12 +20,26 @@ public class GameService {
 	 */
 	private static long nextGameId = 1;
 
-	// FIXME: Add missing pieces to turn this class a singleton 
+	// Private GameService initialized to null so that the instance can be maintained inside the singleton.
+	private static GameService instance = null;
+
+	// Private default constructor so external classes can not instantiate a GameService.
+	private GameService(){}
+
+	/*
+	 * Public method that allows external classes to get the instance. If the instance is null a new instance
+	 * is created if an instance already exists the existing instance is returned.
+	 */
+	public static GameService getInstance() {
+
+		if (instance == null) {instance = new GameService();}
+		return instance;
+	}
 
 
 	/**
 	 * Construct a new game instance
-	 * 
+	 *
 	 * @param name the unique name of the game
 	 * @return the game instance (new or existing)
 	 */
@@ -34,8 +48,14 @@ public class GameService {
 		// a local game instance
 		Game game = null;
 
-		// FIXME: Use iterator to look for existing game with same name
+
 		// if found, simply return the existing instance
+		for (Game g:games) { // foreach loop to determine if an instance of Game exists with the name passed in the call
+			if (g.name == name) {
+				game = g;
+			}
+		}
+
 
 		// if not found, make a new game instance and add to list of games
 		if (game == null) {
@@ -58,10 +78,10 @@ public class GameService {
 	Game getGame(int index) {
 		return games.get(index);
 	}
-	
+
 	/**
 	 * Returns the game instance with the specified id.
-	 * 
+	 *
 	 * @param id unique identifier of game to search for
 	 * @return requested game instance
 	 */
@@ -70,15 +90,20 @@ public class GameService {
 		// a local game instance
 		Game game = null;
 
-		// FIXME: Use iterator to look for existing game with same id
+
 		// if found, simply assign that instance to the local variable
+		for (Game g: games) { // foreach loop to determine if an instance of Game exists with the id passed in the call
+			if (g.id == id){
+				game = g;
+			}
+		}
 
 		return game;
 	}
 
 	/**
 	 * Returns the game instance with the specified name.
-	 * 
+	 *
 	 * @param name unique name of game to search for
 	 * @return requested game instance
 	 */
@@ -87,15 +112,19 @@ public class GameService {
 		// a local game instance
 		Game game = null;
 
-		// FIXME: Use iterator to look for existing game with same name
 		// if found, simply assign that instance to the local variable
+		for(Game g: games){ // foreach loop to determine if an instance of Game exists with the id passed in the call
+			if (g.name == name){
+				game = g;
+			}
+		}
 
 		return game;
 	}
 
 	/**
 	 * Returns the number of games currently active
-	 * 
+	 *
 	 * @return the number of games currently active
 	 */
 	public int getGameCount() {
