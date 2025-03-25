@@ -18,8 +18,7 @@ import java.util.List;
  *
  */
 public class Game extends Entity {
-	long id;
-	String name;
+
 	private static List<Team> teams = new ArrayList<Team>();
 
 	/**
@@ -39,16 +38,22 @@ public class Game extends Entity {
 				return team;
 			}
 		}
-
-		Team tempTeam = new Team(id, name);
-		teams.add(tempTeam);
-		return tempTeam;
+		// Fixme: Create the getNextTeamId() in GameService
+		//Team tempTeam = new Team(GameService.getNextTeamId(), name);
+//		teams.add(tempTeam);
+//		return tempTeam;
+		return null;
 	}
 
+	/**
+	 *
+	 * @return String including game id and name
+	 */
 	@Override
 	public String toString() {
-		
-		return "Game [id=" + id + ", name=" + name + "]";
+		// FixMe: update pull of id from super
+		//return "Game [id=" + id + ", name=" + name + "]";
+		return null;
 	}
 
 }
