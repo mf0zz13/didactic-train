@@ -34,15 +34,13 @@ public class Game extends Entity {
 	 */
 	public Team addTeam(String name) {
 		for (Team team:teams) {
-			if (team.name == name) {
+			if (name.equals(team.getName())) {
 				return team;
 			}
 		}
-		// Fixme: Create the getNextTeamId() in GameService
-		//Team tempTeam = new Team(GameService.getNextTeamId(), name);
-//		teams.add(tempTeam);
-//		return tempTeam;
-		return null;
+		Team tempTeam = new Team(GameService.getInstance().getNextPlayerId(),name);
+		teams.add(tempTeam);
+		return tempTeam;
 	}
 
 	/**
@@ -51,9 +49,8 @@ public class Game extends Entity {
 	 */
 	@Override
 	public String toString() {
-		// FixMe: update pull of id from super
-		//return "Game [id=" + id + ", name=" + name + "]";
-		return null;
+		return "Game [id=" + this.getId() + ", name=" + this.getName() + "]";
+
 	}
 
 }
