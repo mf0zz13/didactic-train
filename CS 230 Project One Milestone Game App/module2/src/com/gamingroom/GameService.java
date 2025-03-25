@@ -15,10 +15,20 @@ public class GameService {
 	 */
 	private static List<Game> games = new ArrayList<Game>();
 
-	/*
+	/**
 	 * Holds the next game identifier
 	 */
 	private static long nextGameId = 1;
+
+	/**
+	 * Holds the next player identifier
+	 */
+	private static long nextPlayerId = 1;
+
+	/**
+	 * Holds the next team identifier
+	 */
+	private static long nextTeamId = 1;
 
 	// Private GameService initialized to null so that the instance can be maintained inside the singleton.
 	private static GameService instance = null;
@@ -26,16 +36,17 @@ public class GameService {
 	// Private default constructor so external classes can not instantiate a GameService.
 	private GameService(){}
 
-	/*
-	 * Public method that allows external classes to get the instance. If the instance is null a new instance
-	 * is created if an instance already exists the existing instance is returned.
+	/**
+	 * Method to get an instance of GameService
+	 * @return Instance of GameService
 	 */
 	public static GameService getInstance() {
 
-		if (instance == null) {instance = new GameService();}
+		if (instance == null) {
+			instance = new GameService();
+		}
 		return instance;
 	}
-
 
 	/**
 	 * Construct a new game instance
@@ -129,5 +140,26 @@ public class GameService {
 	 */
 	public int getGameCount() {
 		return games.size();
+	}
+
+	/**
+	 * Returns the next player id
+	 * @return the next player id
+	 *
+	 */
+	public long getNextPlayerId() {
+		long nextPlayer = nextPlayerId;
+		nextPlayerId += 1; // Updates nextPlayerId
+		return nextPlayer;
+	}
+
+	/**
+	 * Returns the next team id
+	 * @return the next team id
+	 */
+	public long getNextTeamId() {
+		long nextTeam = nextTeamId;
+		nextTeamId += 1; // Updates nextTeamId
+		return nextTeam;
 	}
 }
