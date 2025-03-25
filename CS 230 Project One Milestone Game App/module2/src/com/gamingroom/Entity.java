@@ -5,7 +5,7 @@ public class Entity {
     private long id;
     private String name;
 
-    // Default Constructor
+    // Private Constructor to prevent accidental creation
     private Entity(){}
 
     // Overloaded Constructor that sets the id and name of entity
