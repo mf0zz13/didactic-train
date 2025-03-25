@@ -12,34 +12,23 @@ package com.gamingroom;
  * @author coce@snhu.edu
  *
  */
-public class Player {
-	long id;
-	String name;
-	
-	/*
-	 * Constructor with an identifier and name
+public class Player extends Entity{
+
+	/**
+	 * Add Player
+	 * @param id long that is the id for player
+	 * @param name String that is the name of player
 	 */
 	public Player(long id, String name) {
-		this.id = id;
-		this.name = name;
+		super(id,name);
 	}
 
 	/**
-	 * @return the id
+	 * Return String with game id and name
+	 * @return String including game id and name
 	 */
-	public long getId() {
-		return id;
-	}
-
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-
 	@Override
 	public String toString() {
-		return "Player [id=" + id + ", name=" + name + "]";
+		return "Player [id=" + this.getId() + ", name=" + this.getName() + "]";
 	}
 }

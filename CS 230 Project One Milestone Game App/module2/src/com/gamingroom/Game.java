@@ -45,7 +45,7 @@ public class Game extends Entity {
 	}
 
 	/**
-	 *
+	 * Return String with game id and name
 	 * @return String including game id and name
 	 */
 	@Override
