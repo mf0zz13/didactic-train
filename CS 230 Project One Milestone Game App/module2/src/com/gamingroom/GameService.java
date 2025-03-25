@@ -62,7 +62,7 @@ public class GameService {
 
 		// if found, simply return the existing instance
 		for (Game g:games) { // foreach loop to determine if an instance of Game exists with the name passed in the call
-			if (name.equals(g.name)) {
+			if (name.equals(g.getName())) {
 				game = g;
 			}
 		}
@@ -104,7 +104,7 @@ public class GameService {
 
 		// if found, simply assign that instance to the local variable
 		for (Game g: games) { // foreach loop to determine if an instance of Game exists with the id passed in the call
-			if (g.id == id){
+			if (g.getId() == id){
 				game = g;
 			}
 		}
@@ -125,7 +125,7 @@ public class GameService {
 
 		// if found, simply assign that instance to the local variable
 		for(Game g: games){ // foreach loop to determine if an instance of Game exists with the id passed in the call
-			if (name.equals(g.name)){
+			if (name.equals(g.getName())){
 				game = g;
 			}
 		}
