@@ -31,6 +31,7 @@ public class Game extends Entity {
 	/**
 	 * Add name to list of teams
 	 * @return team object
+	 * @param name String that will be the name of team
 	 */
 	public Team addTeam(String name) {
 		for (Team team:teams) {
