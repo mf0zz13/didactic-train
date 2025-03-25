@@ -86,8 +86,12 @@ public class GameService {
 	 * @param index index position in the list to return
 	 * @return requested game instance
 	 */
-	Game getGame(int index) {
-		return games.get(index);
+	public Game getGame(int index) {
+		try { return games.get(index); }
+		catch (Exception e) {
+			System.out.println("Invalid index");
+		}
+		return null;
 	}
 
 	/**
