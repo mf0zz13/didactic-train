@@ -13,7 +13,7 @@ public class GameService {
 	/**
 	 * A list of the active games
 	 */
-	private static List<Game> games = new ArrayList<Game>();
+	private static List<Game> games = new ArrayList<>();
 
 	/**
 	 * Holds the next game identifier
@@ -62,7 +62,7 @@ public class GameService {
 
 		// if found, simply return the existing instance
 		for (Game g:games) { // foreach loop to determine if an instance of Game exists with the name passed in the call
-			if (g.name == name) {
+			if (name.equals(g.name)) {
 				game = g;
 			}
 		}
@@ -125,7 +125,7 @@ public class GameService {
 
 		// if found, simply assign that instance to the local variable
 		for(Game g: games){ // foreach loop to determine if an instance of Game exists with the id passed in the call
-			if (g.name == name){
+			if (name.equals(g.name)){
 				game = g;
 			}
 		}
